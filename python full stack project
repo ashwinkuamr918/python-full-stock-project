@@ -1,0 +1,253 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "3c060c71-ed1b-4834-ac6e-fe50bdfd9e07",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Defaulting to user installation because normal site-packages is not writeable\n",
+      "Requirement already satisfied: supabase in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (2.19.0)\n",
+      "Requirement already satisfied: realtime in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase) (2.19.0)\n",
+      "Requirement already satisfied: supabase-functions in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase) (2.19.0)\n",
+      "Requirement already satisfied: storage3 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase) (2.19.0)\n",
+      "Requirement already satisfied: supabase-auth in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase) (2.19.0)\n",
+      "Requirement already satisfied: postgrest in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase) (2.19.0)\n",
+      "Requirement already satisfied: httpx<0.29,>=0.26 in c:\\programdata\\anaconda3\\lib\\site-packages (from supabase) (0.28.1)\n",
+      "Requirement already satisfied: anyio in c:\\programdata\\anaconda3\\lib\\site-packages (from httpx<0.29,>=0.26->supabase) (4.7.0)\n",
+      "Requirement already satisfied: certifi in c:\\programdata\\anaconda3\\lib\\site-packages (from httpx<0.29,>=0.26->supabase) (2025.8.3)\n",
+      "Requirement already satisfied: httpcore==1.* in c:\\programdata\\anaconda3\\lib\\site-packages (from httpx<0.29,>=0.26->supabase) (1.0.9)\n",
+      "Requirement already satisfied: idna in c:\\programdata\\anaconda3\\lib\\site-packages (from httpx<0.29,>=0.26->supabase) (3.7)\n",
+      "Requirement already satisfied: h11>=0.16 in c:\\programdata\\anaconda3\\lib\\site-packages (from httpcore==1.*->httpx<0.29,>=0.26->supabase) (0.16.0)\n",
+      "Requirement already satisfied: sniffio>=1.1 in c:\\programdata\\anaconda3\\lib\\site-packages (from anyio->httpx<0.29,>=0.26->supabase) (1.3.0)\n",
+      "Requirement already satisfied: deprecation>=2.1.0 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from postgrest->supabase) (2.1.0)\n",
+      "Requirement already satisfied: pydantic<3.0,>=1.9 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from postgrest->supabase) (2.11.9)\n",
+      "Requirement already satisfied: h2<5,>=3 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from httpx[http2]<0.29,>=0.26->postgrest->supabase) (4.3.0)\n",
+      "Requirement already satisfied: hyperframe<7,>=6.1 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from h2<5,>=3->httpx[http2]<0.29,>=0.26->postgrest->supabase) (6.1.0)\n",
+      "Requirement already satisfied: hpack<5,>=4.1 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from h2<5,>=3->httpx[http2]<0.29,>=0.26->postgrest->supabase) (4.1.0)\n",
+      "Requirement already satisfied: annotated-types>=0.6.0 in c:\\programdata\\anaconda3\\lib\\site-packages (from pydantic<3.0,>=1.9->postgrest->supabase) (0.6.0)\n",
+      "Requirement already satisfied: pydantic-core==2.33.2 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from pydantic<3.0,>=1.9->postgrest->supabase) (2.33.2)\n",
+      "Requirement already satisfied: typing-extensions>=4.12.2 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from pydantic<3.0,>=1.9->postgrest->supabase) (4.15.0)\n",
+      "Requirement already satisfied: typing-inspection>=0.4.0 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from pydantic<3.0,>=1.9->postgrest->supabase) (0.4.1)\n",
+      "Requirement already satisfied: packaging in c:\\programdata\\anaconda3\\lib\\site-packages (from deprecation>=2.1.0->postgrest->supabase) (24.2)\n",
+      "Requirement already satisfied: websockets<16,>=11 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from realtime->supabase) (15.0.1)\n",
+      "Requirement already satisfied: pyjwt>=2.10.1 in c:\\programdata\\anaconda3\\lib\\site-packages (from pyjwt[crypto]>=2.10.1->supabase-auth->supabase) (2.10.1)\n",
+      "Requirement already satisfied: cryptography>=3.4.0 in c:\\programdata\\anaconda3\\lib\\site-packages (from pyjwt[crypto]>=2.10.1->supabase-auth->supabase) (44.0.1)\n",
+      "Requirement already satisfied: cffi>=1.12 in c:\\programdata\\anaconda3\\lib\\site-packages (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->supabase-auth->supabase) (1.17.1)\n",
+      "Requirement already satisfied: pycparser in c:\\programdata\\anaconda3\\lib\\site-packages (from cffi>=1.12->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->supabase-auth->supabase) (2.21)\n",
+      "Requirement already satisfied: strenum>=0.4.15 in c:\\users\\acc35\\appdata\\roaming\\python\\python313\\site-packages (from supabase-functions->supabase) (0.4.15)\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install supabase"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "5f66caea-d808-4cf4-94a2-2b390a90c088",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.19.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "import supabase\n",
+    "print(supabase.__version__)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "8255f726-4d05-4de1-b631-d1082d4bfa25",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "APIResponse[TypeVar](data=[{'id': 5, 'name': 'nani', 'age': 23, 'attendance': 75.2}], count=None)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from supabase import create_client, Client\n",
+    "\n",
+    "url =\"https://fbdkpevonfqkqyvybpdd.supabase.co\"\n",
+    "key = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZiZGtwZXZvbmZxa3F5dnlicGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyNTY2MjIsImV4cCI6MjA3MzgzMjYyMn0.PhzVevr6tNwplvJLlef70KFG9TuLfL2DDf2FbPW1ppk\"\n",
+    "supabase: Client = create_client(url, key)\n",
+    "\n",
+    "# Insert test data\n",
+    "supabase.table(\"students\").insert({\n",
+    "    \"name\": \"nani\",\n",
+    "    \"age\": 23,\n",
+    "    \"attendance\": 75.2\n",
+    "}).execute()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "5e78d0f9-809c-4732-8a97-90ea18cafe7b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "All Students: [{'id': 1, 'name': 'Alice', 'age': 20, 'attendance': 82.5}, {'id': 2, 'name': 'Ashwin', 'age': 20, 'attendance': 55.5}, {'id': 3, 'name': 'chadi yuvakudu', 'age': 20, 'attendance': 40}, {'id': 4, 'name': 'nighty yuvathi', 'age': 23, 'attendance': 80}, {'id': 5, 'name': 'nani', 'age': 23, 'attendance': 75.2}]\n",
+      "Eligible Students: [{'id': 1, 'name': 'Alice', 'age': 20, 'attendance': 82.5}, {'id': 4, 'name': 'nighty yuvathi', 'age': 23, 'attendance': 80}, {'id': 5, 'name': 'nani', 'age': 23, 'attendance': 75.2}]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# All students\n",
+    "res = supabase.table(\"students\").select(\"*\").execute()\n",
+    "print(\"All Students:\", res.data)\n",
+    "\n",
+    "# Only eligible students (attendance >= 75)\n",
+    "eligible = supabase.table(\"students\").select(\"*\").gte(\"attendance\", 75).execute()\n",
+    "print(\"Eligible Students:\", eligible.data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "2cc8e083-bff4-4dab-b2c9-3829cbad5b7c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "APIResponse[TypeVar](data=[{'id': 1, 'name': 'Alice', 'age': 20, 'attendance': 80}], count=None)"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Update Alice’s attendance\n",
+    "supabase.table(\"students\").update({\"attendance\": 80}).eq(\"name\", \"Alice\").execute()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "df4718d3-d104-480b-a8a5-bfd62c2a4de8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "APIResponse[TypeVar](data=[{'id': 2, 'name': 'Ashwin', 'age': 20, 'attendance': 55.5}, {'id': 3, 'name': 'chadi yuvakudu', 'age': 20, 'attendance': 40}], count=None)"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Delete students with < 75% attendance\n",
+    "supabase.table(\"students\").delete().lt(\"attendance\", 75).execute()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "7b13f1c6-cf9c-4ec0-b79a-69ae2cdcf3d6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting student_manager.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile student_manager.py\n",
+    "import streamlit as st\n",
+    "from supabase import create_client\n",
+    "import pandas as pd\n",
+    "\n",
+    "url = \"https://fbdkpevonfqkqyvybpdd.supabase.co\"\n",
+    "key = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZiZGtwZXZvbmZxa3F5dnlicGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyNTY2MjIsImV4cCI6MjA3MzgzMjYyMn0.PhzVevr6tNwplvJLlef70KFG9TuLfL2DDf2FbPW1ppk\"\n",
+    "supabase = create_client(url, key)\n",
+    "\n",
+    "st.set_page_config(page_title=\"Student Manager\", page_icon=\"🎓\", layout=\"centered\")\n",
+    "\n",
+    "st.title(\"🎓 Student Manager with Supabase\")\n",
+    "st.write(\"Add students, check attendance & eligibility\")\n",
+    "\n",
+    "with st.form(\"student_form\"):\n",
+    "    name = st.text_input(\"Name\")\n",
+    "    age = st.number_input(\"Age\", min_value=1, max_value=100, step=1)\n",
+    "    attendance = st.number_input(\"Attendance (%)\", min_value=0.0, max_value=100.0, step=0.5)\n",
+    "    submitted = st.form_submit_button(\"➕ Add Student\")\n",
+    "    \n",
+    "    if submitted and name:\n",
+    "        supabase.table(\"students\").insert({\"name\": name, \"age\": age, \"attendance\": attendance}).execute()\n",
+    "        st.success(f\"✅ {name} added successfully!\")\n",
+    "\n",
+    "st.subheader(\"📋 Student List"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b823c4c4-c14d-4154-95ce-7a104bc12f1b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!streamlit run student_manager.py"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bd35e710-cb71-4c90-9f4d-e470f2be2918",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
